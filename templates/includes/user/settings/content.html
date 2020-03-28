@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+{% load crispy_forms_tags %}
+{% block body %}
+
+<div class="container">   
+    <div class="row">
+        
+        <div class="col-md-12 ml-auto">
+            <div class="card card-pricing bg-primary settings-card">
+                <div class="sun_sett_circle-1"></div>
+                <div class="sun_sett_circle-2"></div>
+                <div class="sun_sett_circle-3"></div>
+                <div class="card-body "style="min-height:170px">
+                    <div class="icon">
+                        
+                    </div>
+                    <h3 class="card-title">Ayarlar</h3>
+                    <h5 class="text-white">{{request.user}}    </h5>
+                    
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+    {% include "includes/user/settings/general-settings.html" %}
+    {% include "includes/user/settings/settings-bar.html" %}
+    </div>
+</div>
+
+
+
+
+{% endblock body %}

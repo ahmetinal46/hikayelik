@@ -1,0 +1,25 @@
+<button type="button" class="btn btn-1 btn-danger" data-toggle="modal" data-target="#ArticleDeleteModal">Sil</button>
+
+<!-- Modal -->
+<div class="modal fade" id="ArticleDeleteModal" tabindex="-1" role="dialog" aria-labelledby="ArticleDeleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="ArticleDeleteModalLabel">Silinsin mi?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Yazıyı silmek istediğinden emin misin?
+            </div>
+            <div class="modal-footer">
+            <form action="{% url 'articles:delete_article' article.hikaye_slug%}" method="post">
+                {% csrf_token %}
+                <input class="btn btn-danger text-white" type="submit" value="Sil" />
+            </form>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">İptal</button>                
+            </div>
+        </div>
+    </div>
+</div>

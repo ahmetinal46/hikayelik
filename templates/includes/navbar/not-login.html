@@ -1,0 +1,31 @@
+<ul class="navbar-nav nav-flex-icons">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-55" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">
+           Giriş Yap 
+          </a>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbarDropdownMenuLink-55">
+          {% if not request.user.is_authenticated and not "/user/login" in request.get_full_path %}
+            <form class='ext-center  p-3' method='POST' action='{% url "accounts:loginUser" %}'>{% csrf_token %}
+              <div class='form-group'>
+                  <input type='text' class='form-control' name='username' placeholder='Kullanıcı Adı' /> 
+              </div>
+              <div class='form-group'>
+                  <input type='password' class='form-control' name='password' placeholder='Parola' />
+              </div>
+                <button type='submit' class="btn btn-1 btn-success btn-block my-4" type="button">Giriş Yap</button>
+                <a class="btn btn-1 btn-primary btn-block my-4" href="{% url 'accounts:register'%}">Kayıt Ol</a>
+              
+          </form>
+          {% else %}
+          <div class="ext-center p-3">
+            <a class="btn btn-info btn-block my-4 dropdown-item white-text text-center" href="{% url 'accounts:register'%}">Kayıt Ol</a>
+          </div>
+          {% endif %}
+        </div>
+      </li>
+    </ul>
+
+
+    

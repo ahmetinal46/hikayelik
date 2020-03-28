@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+    <div class="col-md-3">
+    {% include "includes/dashboard/side-bar.html" %}
+    </div>
+
+    <div class="col-md-9">
+    {% if request.path == '/dashboard/' %}
+        {% include "includes/dashboard/dashboard.html" %}
+
+    {% elif request.path == '/dashboard/published/'%}
+        {% include "includes/dashboard/published.html" %}
+
+
+    {% elif request.path == '/dashboard/publishwaitinguser/'%}
+        {% include "includes/dashboard/publish-waiting-user.html" %}
+
+    {% elif request.path == '/dashboard/my-articles/'%}
+        {% include "includes/dashboard/my-articles.html" %}
+
+    
+
+
+
+
+    {% endif %}
+
+    </div>
+
+    </div>
+</div>
+<script>    
+function Wo_DeletePost(post_id) {
+  var delete_box = $('#post-' + post_id).find('#delete-post');
+  var delete_button = delete_box.find('#delete-all-post');
+  $('#post-' + post_id).find('#delete-post .ball-pulse').fadeIn(100);
+  $.get(Wo_Ajax_Requests_File(), {
+    f: 'posts',
+    s: 'delete_post',
+    post_id: post_id
+  }, function (data) {
+    if(data.status == 200) {
+      $('#user_post_count').html(data.post_count);
+      delete_box.modal('hide');
+      setTimeout(function () {
+        $('#post-' + post_id).slideUp(200, function () {
+          $(this).remove();
+        });
+      }, 300);
+    }
+    $('#post-' + post_id).find('#delete-post .ball-pulse').fadeOut(100);
+  });
+}
+</script>
+{% endblock body %}

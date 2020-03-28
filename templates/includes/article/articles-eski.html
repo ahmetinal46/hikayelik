@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+
+{% block body %}
+
+
+<h3>Makaleler</h3>
+<form class="form-inline md-form form-sm active-purple-2 mt-2">
+{% csrf_token %}
+  <input class="form-control form-control-sm mr-2 w-25 ml-auto" type="text" placeholder="Arama..." name="keywards" aria-label="Search">
+  <i class="fas fa-search" aria-hidden="true"></i>
+</form>
+<hr>
+<p>Hoşgeldin {{request.user}}</p> 
+
+<hr>
+
+<a href="/articles/addarticle" class="btn btn-secondary">Makale Ekle</a>
+<hr>
+
+{% if articles %}
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">Başlık</th>
+      <th scope="col">Yazar</th>
+      <th scope="col">Tarih</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for article in articles  %}
+    <tr>
+      <th scope="row">{{article.id}}</th>
+      <td><a href="/articles/article/{{article.id}}">{{article.title}}</a></td>
+      <td>{{article.author.username}}</td>
+      <td>{{article.created_date}}</td>
+    </tr>
+  {% endfor %}
+  
+    
+  </tbody>
+</table>
+{% else %}
+<div class="alert alert-danger">Makale bulunamadı.</div>
+
+{% endif %}
+
+
+
+
+
+
+{% endblock body %}

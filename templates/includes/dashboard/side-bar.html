@@ -1,0 +1,22 @@
+<ul class="nav nav-pills mt-5 dashbar" id="tabs_2" role="tablist" style="flex-direction:column">
+  <li class="nav-item">
+    <a class="nav-link  {% if request.path == '/dashboard/' %}active show {% endif %} " href="{% url 'dashboard:dashboard'%}">
+      <span class="nav-link-icon d-block"><i class="ni ni-atom"></i> Kontrol Paneli</span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link {% if request.path == '/dashboard/published/' %}active show{% endif %}" href="{% url 'dashboard:published'%}">
+      <span class="nav-link-icon d-block"><i class="ni ni-chat-round"></i>Onay Bekleyenler</span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link {% if request.path == '/dashboard/my-articles/' %}active show {% endif %}"  href="{% url 'dashboard:myArticles'%}">
+      <span class="nav-link-icon d-block"><i class="ni ni-cloud-download-95"></i>Makalelerim</span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link {% if request.path == '/dashboard/publishwaitinguser/' %}active show{% endif %}"  href="{% url 'dashboard:publishwaitinguser'%}">
+      <span class="nav-link-icon d-block"><i class="ni ni-cloud-download-95"></i>Onay Bekleyen Makalelerim</span>
+    </a>
+  </li>
+</ul>

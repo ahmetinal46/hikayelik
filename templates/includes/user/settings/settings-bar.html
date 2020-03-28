@@ -1,0 +1,25 @@
+
+
+
+<ul class="nav nav-pills settings-bar col-md-4" id="tabs_2" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link  {% if  '/user/settings/' in request.path %}active{% endif %} " href="#">
+      <span class="nav-link-icon d-block"><i class="ni ni-atom"></i> Genel Ayarlar</span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link {% if request.path == '/dashboard/published/' %}active show{% endif %}" href="#">
+      <span class="nav-link-icon d-block"><i class="ni ni-chat-round"></i>Güvenlik Ayarları</span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link {% if request.path == '/dashboard/my-articles/' %}active show {% endif %}"  href="#">
+      <span class="nav-link-icon d-block"><i class="ni ni-cloud-download-95"></i>Bildirimler</span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link {% if request.path == '/dashboard/publishwaitinguser/' %}active show{% endif %}"  href="#">
+      <span class="nav-link-icon d-block"><i class="ni ni-cloud-download-95"></i>Hesabı Sil</span>
+    </a>
+  </li>
+</ul>

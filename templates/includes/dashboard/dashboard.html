@@ -1,0 +1,16 @@
+
+<div class="row">
+      <h3 class="col-md-8">Makaleler</h3>
+      
+      <form class="form-group col-md-4">
+        <div class="input-group input-group-alternative mb-4">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="ni ni-zoom-split-in"></i></span>
+          </div>
+          {% csrf_token %}
+          <input class="form-control form-control-alternative" name="keywards" placeholder="Arama" type="text"aria-label="Search">
+        </div>
+      </form>
+  </div>
+  <p>Hoşgeldin {{request.user}}</p> 
+  <hr>

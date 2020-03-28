@@ -1,0 +1,32 @@
+{% load crispy_forms_tags %}
+<div class="col-md-8 settings-right ml-auto">
+<ul class="nav flex-column settings-content">
+    <h3 class="navbar-profilehr">Genel Ayarlar</h3>
+    <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-row">
+                <div class="form-group col-md-12 ">
+                    {{ form.username|as_crispy_field }}
+                </div>
+            
+                <div class="form-group col-md-6 ">
+                    {{ form.email|as_crispy_field }}
+                </div>
+                
+                <div class="form-group col-md-6 ">
+                    {{ form.birth_date|as_crispy_field }}
+                </div>
+                <div class="form-group col-md-6 ">
+                    {{ form.gender|as_crispy_field }}
+                </div>
+                <div class="form-group col-md-6 ">
+                    {{ form.location|as_crispy_field }}
+                </div>
+
+            </div>
+            <br>
+            {% include "includes/buttons/submit.html" %}
+
+        </form>
+</ul>
+</div>

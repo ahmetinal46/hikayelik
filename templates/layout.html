@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        {% block title %}
+            <title>Blog Projesi Test</title>
+        {% endblock title %} 
+        
+        <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css'%}">
+        <link rel="stylesheet" href="{% static 'assets/css/argon-design-system.css'%}">
+        <link rel="stylesheet" href="{% static 'assets/css/style.css'%}">
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+        <link href="/assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+        <!-- Icons -->
+        <!-- Theme CSS -->  
+    </head>
+    <body>
+        <div class="container-fluid cont" >
+            {% include "includes/navbar/content.html" %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div clas="row">
+                        <div class="col-md-6 offset-md-3">
+                            <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                                <span class="alert-inner--icon"><i class="ni ni-like-2"></i></span>
+                                <span class="alert-inner--text"> {{ message | safe }}</span>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+
+                          
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endif %}
+            {% block body %}
+            {% endblock body %}
+        </div>    
+    <!-- Theme JS -->
+    {% block scripts %}
+    
+    {% endblock scripts %}
+    <script src="{% static 'assets/js/argon-design-system.min.js'%}"></script>
+    <script src="{% static 'assets/js/core/jquery.min.js'%}"></script>
+    <script src="{% static 'assets/js/core/popper.min.js'%}"></script>
+    <script src="{% static 'assets/js/core/bootstrap.min.js'%}"></script>
+   
+    <script src="https://kit.fontawesome.com/75abd8fb9b.js"></script>
+
+
+
+    
+    </body>
+</html>
